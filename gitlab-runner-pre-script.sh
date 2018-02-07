@@ -1,7 +1,13 @@
 #!/bin/bash
 
+echo -e "Old date:"
+date
+
 echo -e "> Updating date:"
 sudo ntpdate -u time.apple.com
+
+echo -e "New date:"
+date
 
 echo -e "> Updating CA cert..."
 curl -kfsSL curl.haxx.se/ca/cacert.pem -o "$(ruby -ropenssl -e 'puts OpenSSL::X509::DEFAULT_CERT_FILE')"
