@@ -21,6 +21,8 @@ PODS_ARCHIVE="Pods.tar.bz2"
 GEMS_ARCHIVE="Gems.tar.bz2"
 CACHE_PATH="/mnt/cache/${CI_RUNNER_ID}/${CI_PROJECT_NAME}"
 
+pwd
+
 if [ -e ${CACHE_PATH}/${PODS_ARCHIVE} ]
 then
 	echo "> Loading pods cache..."
