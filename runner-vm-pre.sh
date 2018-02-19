@@ -22,4 +22,4 @@ then
 fi
 
 # print transfered data
-ls -lah *.bz2
+#ls -lah *.bz2
