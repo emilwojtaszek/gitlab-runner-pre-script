@@ -1,5 +1,14 @@
 #!/bin/bash
 
+echo "--- Uploading cache started..."
+
+# check if AUTO_CLOSE_TOKEN is not nil
+if [ -z $AUTO_CLOSE_TOKEN ]
+then 
+	echo "--- AUTO_CLOSE_TOKEN variable is unset, exiting..."
+	exit 0
+fi
+
 PODS_ARCHIVE="Pods.tar.bz2"
 GEMS_ARCHIVE="Gems.tar.bz2"
 PODS_PATH="Pods"
@@ -23,6 +32,8 @@ then
 	time tar -c $BUNDLE_PATH | pbzip2 -c | openssl enc -e -aes-256-cbc -k $AUTO_CLOSE_TOKEN -out $GEMS_ARCHIVE
 	time cp $GEMS_ARCHIVE $CACHE_PATH
 fi
+
+echo "--- Uploading cache finished..."
 
 # print transfered data
 #ls -lah *.bz2
