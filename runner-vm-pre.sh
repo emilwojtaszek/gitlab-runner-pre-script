@@ -12,7 +12,7 @@ MOUNT_PATH="/mnt/cache"
 if [ ! -d "$MOUNT_PATH" ]; then
 	echo "--- Creating mount point at $MOUNT_PATH..."
 	sudo mkdir -p $MOUNT_PATH
-	sudo chown vagrant /mnt/cache
+	sudo chown -R vagrant /mnt
 
 	# check if AUTO_CLOSE_TOKEN is not nil
 	if [ -z $NFS_SERVER ] || [ -z $NFS_PATH]; then 
