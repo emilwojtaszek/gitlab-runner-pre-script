@@ -16,3 +16,8 @@ xcrun swift -version
 
 echo -e "--- Xcodebuild version:"
 xcodebuild -version
+
+# Set bigger post buffer because of early EOF issue 
+# https://stackoverflow.com/questions/24952683/git-push-error-rpc-failed-result-56-http-code-200-fatal-the-remote-end-hun?rq=1
+
+git config http.postBuffer 524288000
